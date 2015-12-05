@@ -12,6 +12,7 @@
 		D0A8130C1C1292BF001CAEA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A8130A1C1292BF001CAEA3 /* Main.storyboard */; };
 		D0A8130E1C1292BF001CAEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A8130D1C1292BF001CAEA3 /* Assets.xcassets */; };
 		D0A813111C1292BF001CAEA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A8130F1C1292BF001CAEA3 /* LaunchScreen.storyboard */; };
+		D0A813191C12B01F001CAEA3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D0A813181C12B01F001CAEA3 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D0A8130D1C1292BF001CAEA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0A813101C1292BF001CAEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0A813121C1292BF001CAEA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0A813181C12B01F001CAEA3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		D0A812FA1C1292BF001CAEA3 = {
 			isa = PBXGroup;
 			children = (
+				D0A813181C12B01F001CAEA3 /* .gitignore */,
 				D0A813051C1292BF001CAEA3 /* tipster */,
 				D0A813041C1292BF001CAEA3 /* Products */,
 			);
@@ -123,6 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A813191C12B01F001CAEA3 /* .gitignore in Resources */,
 				D0A813111C1292BF001CAEA3 /* LaunchScreen.storyboard in Resources */,
 				D0A8130E1C1292BF001CAEA3 /* Assets.xcassets in Resources */,
 				D0A8130C1C1292BF001CAEA3 /* Main.storyboard in Resources */,
@@ -249,6 +253,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tipster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sarn.tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -260,6 +265,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tipster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sarn.tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
