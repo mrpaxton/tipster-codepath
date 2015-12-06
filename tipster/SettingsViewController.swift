@@ -10,11 +10,13 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+   
+    @IBOutlet weak var happyLabel: UILabel!
+    @IBOutlet weak var happierLabel: UILabel!
+    @IBOutlet weak var happiestLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        print("settings view loaded")
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +24,18 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onHappySliderChanged(sender: UISlider) {
+        happyLabel.text = String(format: "%.f", roundf(sender.value*100))
+    }
 
+    @IBAction func onHappierSliderChanged(sender: AnyObject) {
+        happierLabel.text = String(format: "%.f", roundf(sender.value*100))
+    }
+    
+    @IBAction func onHappiestSliderChanged(sender: AnyObject) {
+        happiestLabel.text = String(format: "%.f", roundf(sender.value*100))
+    }
+    
     /*
     // MARK: - Navigation
 
