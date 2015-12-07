@@ -14,6 +14,8 @@
 		D0A8130E1C1292BF001CAEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A8130D1C1292BF001CAEA3 /* Assets.xcassets */; };
 		D0A813111C1292BF001CAEA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A8130F1C1292BF001CAEA3 /* LaunchScreen.storyboard */; };
 		D0A813191C12B01F001CAEA3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D0A813181C12B01F001CAEA3 /* .gitignore */; };
+		D0C2544D1C14D18700EE95A2 /* UserSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2544C1C14D18700EE95A2 /* UserSettingsModel.swift */; };
+		D0C2544F1C14D28A00EE95A2 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2544E1C14D28A00EE95A2 /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D0A813101C1292BF001CAEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0A813121C1292BF001CAEA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A813181C12B01F001CAEA3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D0C2544C1C14D18700EE95A2 /* UserSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsModel.swift; sourceTree = "<group>"; };
+		D0C2544E1C14D28A00EE95A2 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistenceManager.swift; path = ../PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				D0A8130F1C1292BF001CAEA3 /* LaunchScreen.storyboard */,
 				D0A813121C1292BF001CAEA3 /* Info.plist */,
 				D03586241C13764800832AC7 /* SettingsViewController.swift */,
+				D0C2544E1C14D28A00EE95A2 /* PersistenceManager.swift */,
+				D0C2544C1C14D18700EE95A2 /* UserSettingsModel.swift */,
 			);
 			path = tipster;
 			sourceTree = "<group>";
@@ -144,8 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A813091C1292BF001CAEA3 /* ViewController.swift in Sources */,
+				D0C2544F1C14D28A00EE95A2 /* PersistenceManager.swift in Sources */,
 				D0A813071C1292BF001CAEA3 /* AppDelegate.swift in Sources */,
 				D03586251C13764800832AC7 /* SettingsViewController.swift in Sources */,
+				D0C2544D1C14D18700EE95A2 /* UserSettingsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
