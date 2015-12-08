@@ -19,13 +19,27 @@ class ViewController: UIViewController {
     
     
     @IBAction func onEditingChanged(sender: AnyObject) {
+        //perform calculation and update UIs
+        calculateTipAndTotal()
+        
+        //save billAmount to NSUserDefaults via PersistenceManager
+        let billAmount = (billTextField.text! as NSString).floatValue
+        if var userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
+            userSettingsModel.amount = billAmount
+            let result = PersistenceManager.saveToNSUserDefaults(userSettingsModel)
+            print("saved successfully: \(result)")
+        }
+    }
+    
+    //helper: calculate tip and total
+    func calculateTipAndTotal() {
         let tipPercent = tipPercentages[tipSegmentedControl.selectedSegmentIndex]
         let billAmount = (billTextField.text! as NSString).floatValue
+        
         let tip = billAmount * tipPercent
         let total = billAmount + tip
         tipLabel.text = formatCurrency(tip)
         totalLabel.text = formatCurrency(total)
-        
     }
     
     override func viewDidLoad() {
@@ -34,18 +48,26 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         //if model is ready, use it to configure tip percentages: [happy, happier, happiest]
         if let userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
-            tipPercentages[0] = userSettingsModel.happyPercentage
-            tipPercentages[1] = userSettingsModel.happierPercentage
-            tipPercentages[2] = userSettingsModel.happiestPercentage
+            tipPercentages[0] = round(userSettingsModel.happyPercentage * 100) / 100
+            tipPercentages[1] = round(userSettingsModel.happierPercentage * 100) / 100
+            tipPercentages[2] = round(userSettingsModel.happiestPercentage * 100) / 100
+            
+            if userSettingsModel.amount > 0 {
+                billTextField.text = "\(userSettingsModel.amount)"
+            }
             
             //change tip labels
             for position in 0...tipPercentages.count-1 {
                 setSegmentedControlTitle(position, tipPercentages: tipPercentages)
+                print("tip percentage value: \(tipPercentages[position])")
             }
-            
         }
+        
+        //perform calcuation and update UIs
+        calculateTipAndTotal()
     }
     
     //helper: set title of SegmentedControl by index
@@ -56,8 +78,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    //calculate the total amount given a bill amount and tip percentage
     
     
     //format the currency amount
