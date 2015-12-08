@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var superTipperNavItem: UINavigationItem!
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
@@ -41,6 +42,14 @@ class ViewController: UIViewController {
         
         //make the billAmount TextField become the first responder
         billTextField.becomeFirstResponder()
+        
+        // Set navigation bar background color
+        self.navigationController!.navigationBar.barTintColor =
+            UIColor(red: 0.098, green: 0.161, blue: 0.275, alpha: 1.00)
+        
+        //Set navigation bar title text color
+        self.navigationController!.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.yellowColor()]
     }
     
     override func viewWillAppear(animated: Bool) {
