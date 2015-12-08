@@ -49,30 +49,33 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onHappySliderChanged(sender: UISlider) {
         userSettingsModel.happyPercentage = sender.value
-        happyLabel.text = String(format: "%.2f", roundf(sender.value*100)/100)
+        happyLabel.text = formatPercentage(roundf(sender.value*100)/100)
     }
 
     @IBAction func onHappierSliderChanged(sender: AnyObject) {
         userSettingsModel.happierPercentage = sender.value
-        happierLabel.text = String(format: "%.2f", roundf(sender.value*100)/100)
+        happierLabel.text = formatPercentage(roundf(sender.value*100)/100)
     }
     
     @IBAction func onHappiestSliderChanged(sender: AnyObject) {
         userSettingsModel.happiestPercentage = sender.value
-        happiestLabel.text = String(format: "%.2f", roundf(sender.value*100)/100)
+        happiestLabel.text = formatPercentage(roundf(sender.value*100)/100)
     }
     
-    //persist data: when? view will disappear?
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        let saveResult = PersistenceManager.saveToNSUserDefaults(userSettingsModel)
-        print("save result: \(saveResult)")
-//        print(PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel"))
-//        print(userSettingsModel.happyPercentage)
+        PersistenceManager.saveToNSUserDefaults(userSettingsModel)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)        
+    }
+    
+    //heler function: format the percentage
+    func formatPercentage(percentage: Float) -> String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.PercentStyle
+        return formatter.stringFromNumber(percentage as NSNumber)!
     }
     
     // MARK: - Navigation

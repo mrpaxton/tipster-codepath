@@ -90,7 +90,9 @@ class ViewController: UIViewController {
     
     //helper: format the currency amount
     func formatCurrency(amount: Float) -> String {
-        return String(format: "$%.2f", amount)
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        return formatter.stringFromNumber(amount as NSNumber)!
     }
 }
 
