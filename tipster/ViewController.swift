@@ -26,21 +26,15 @@ class ViewController: UIViewController {
         let billAmount = (billTextField.text! as NSString).floatValue
         if var userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
             userSettingsModel.amount = billAmount
-            let result = PersistenceManager.saveToNSUserDefaults(userSettingsModel)
-            print("saved successfully: \(result)")
+            PersistenceManager.saveToNSUserDefaults(userSettingsModel)
         }
     }
     
-    //helper: calculate tip and total
-    func calculateTipAndTotal() {
-        let tipPercent = tipPercentages[tipSegmentedControl.selectedSegmentIndex]
-        let billAmount = (billTextField.text! as NSString).floatValue
-        
-        let tip = billAmount * tipPercent
-        let total = billAmount + tip
-        tipLabel.text = formatCurrency(tip)
-        totalLabel.text = formatCurrency(total)
+    @IBAction func onTapped(sender: AnyObject) {
+        //dismiss the keyboard
+        view.endEditing(true)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +49,7 @@ class ViewController: UIViewController {
             tipPercentages[1] = round(userSettingsModel.happierPercentage * 100) / 100
             tipPercentages[2] = round(userSettingsModel.happiestPercentage * 100) / 100
             
-            if userSettingsModel.amount > 0 {
+            if userSettingsModel.amount >= 0 {
                 billTextField.text = "\(userSettingsModel.amount)"
             }
             
@@ -70,25 +64,33 @@ class ViewController: UIViewController {
         calculateTipAndTotal()
     }
     
-    //helper: set title of SegmentedControl by index
-    func setSegmentedControlTitle(position: Int, tipPercentages: [Float]) {
-        tipSegmentedControl.setTitle("\( round(tipPercentages[position]*100) )%", forSegmentAtIndex: position)
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
     }
-
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    //helper: set title of SegmentedControl by index
+    func setSegmentedControlTitle(position: Int, tipPercentages: [Float]) {
+        tipSegmentedControl.setTitle("\( round(tipPercentages[position]*100) )%", forSegmentAtIndex: position)
+    }
     
-    //format the currency amount
+    //helper: calculate tip and total
+    func calculateTipAndTotal() {
+        let tipPercent = tipPercentages[tipSegmentedControl.selectedSegmentIndex]
+        let billAmount = (billTextField.text! as NSString).floatValue
+        
+        let tip = billAmount * tipPercent
+        let total = billAmount + tip
+        tipLabel.text = formatCurrency(tip)
+        totalLabel.text = formatCurrency(total)
+    }
+    
+    //helper: format the currency amount
     func formatCurrency(amount: Float) -> String {
         return String(format: "$%.2f", amount)
-    }
-
-
-    @IBAction func onTapped(sender: AnyObject) {
-        //dismiss the keyboard
-        view.endEditing(true)
     }
 }
 

@@ -72,9 +72,7 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        print("abcdef")
-        
+        super.viewWillAppear(animated)        
     }
     
     // MARK: - Navigation
