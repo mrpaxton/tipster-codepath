@@ -32,9 +32,9 @@ class SettingsViewController: UIViewController {
         
         if let model = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
             userSettingsModel = model
-            happyLabel.text = String(format: "%.2f", userSettingsModel.happyPercentage)
-            happierLabel.text = String(format: "%.2f", userSettingsModel.happierPercentage)
-            happiestLabel.text = String(format: "%.2f", userSettingsModel.happiestPercentage)
+            happyLabel.text = formatPercentage(userSettingsModel.happyPercentage)
+            happierLabel.text = formatPercentage(userSettingsModel.happierPercentage)
+            happiestLabel.text = formatPercentage(userSettingsModel.happiestPercentage)
             
             happySlider.setValue(userSettingsModel.happyPercentage, animated: true)
             happierSlider.setValue(userSettingsModel.happierPercentage, animated: true)
