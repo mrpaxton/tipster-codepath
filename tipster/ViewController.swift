@@ -38,6 +38,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //make the billAmount TextField become the first responder
+        billTextField.becomeFirstResponder()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -77,7 +80,7 @@ class ViewController: UIViewController {
         tipSegmentedControl.setTitle("\( round(tipPercentages[position]*100) )%", forSegmentAtIndex: position)
     }
     
-    //helper: calculate tip and total
+    //helper function: calculate tip and total
     func calculateTipAndTotal() {
         let tipPercent = tipPercentages[tipSegmentedControl.selectedSegmentIndex]
         let billAmount = (billTextField.text! as NSString).floatValue
@@ -88,7 +91,7 @@ class ViewController: UIViewController {
         totalLabel.text = formatCurrency(total)
     }
     
-    //helper: format the currency amount
+    //helper function: format the currency amount
     func formatCurrency(amount: Float) -> String {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
