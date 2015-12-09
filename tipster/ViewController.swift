@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    @IBOutlet weak var billAmountPreAnimView: UIView!
+    @IBOutlet weak var billAmountPostAnimView: UIView!
     @IBOutlet weak var superTipperNavItem: UINavigationItem!
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -50,6 +51,16 @@ class ViewController: UIViewController {
         //Set navigation bar title text color
         self.navigationController!.navigationBar.titleTextAttributes =
             [NSForegroundColorAttributeName: UIColor.yellowColor()]
+        
+        //animate billAmountEnterView from alpha 0 to alpha 1
+        billAmountPreAnimView.alpha = 1
+        billAmountPostAnimView.alpha = 0
+        UIView.animateWithDuration(1.5, animations: {
+            self.billAmountPreAnimView.alpha = 0
+            self.billAmountPostAnimView.alpha = 1
+        })
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
