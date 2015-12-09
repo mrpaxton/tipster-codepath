@@ -21,15 +21,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func onEditingChanged(sender: AnyObject) {
-        //perform calculation and update UIs
         calculateTipAndTotal()
-        
-        //save billAmount to NSUserDefaults via PersistenceManager
-        let billAmount = (billTextField.text! as NSString).floatValue
-        if var userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
-            userSettingsModel.amount = billAmount
-            PersistenceManager.saveToNSUserDefaults(userSettingsModel)
-        }
+        saveBillAmountToStorage()
     }
     
     @IBAction func onTapped(sender: AnyObject) {
@@ -37,53 +30,16 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //make the billAmount TextField become the first responder
-        billTextField.becomeFirstResponder()
-        
-        // Set navigation bar background color
-        self.navigationController!.navigationBar.barTintColor =
-            UIColor(red: 0.098, green: 0.161, blue: 0.275, alpha: 1.00)
-        
-        //Set navigation bar title text color
-        self.navigationController!.navigationBar.titleTextAttributes =
-            [NSForegroundColorAttributeName: UIColor.yellowColor()]
-        
-        //animate billAmountEnterView from alpha 0 to alpha 1
-        billAmountPreAnimView.alpha = 1
-        billAmountPostAnimView.alpha = 0
-        UIView.animateWithDuration(1.5, animations: {
-            self.billAmountPreAnimView.alpha = 0
-            self.billAmountPostAnimView.alpha = 1
-        })
-        
-        
+        setTextFieldFirstResponder()
+        beautifyNavBar()
+        animateBillAmountTextField()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //if model is ready, use it to configure tip percentages: [happy, happier, happiest]
-        if let userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
-            tipPercentages[0] = round(userSettingsModel.happyPercentage * 100) / 100
-            tipPercentages[1] = round(userSettingsModel.happierPercentage * 100) / 100
-            tipPercentages[2] = round(userSettingsModel.happiestPercentage * 100) / 100
-            
-            if userSettingsModel.amount >= 0 {
-                billTextField.text = "\(userSettingsModel.amount)"
-            }
-            
-            //change tip labels
-            for position in 0...tipPercentages.count-1 {
-                setSegmentedControlTitle(position, tipPercentages: tipPercentages)
-                print("tip percentage value: \(tipPercentages[position])")
-            }
-        }
-        
-        //perform calcuation and update UIs
+        updateDataFromStorage()
         calculateTipAndTotal()
     }
     
@@ -100,7 +56,7 @@ class ViewController: UIViewController {
         tipSegmentedControl.setTitle("\( round(tipPercentages[position]*100) )%", forSegmentAtIndex: position)
     }
     
-    //helper function: calculate tip and total
+    //helper function:  perform calcuation for tip and total and update UIs
     func calculateTipAndTotal() {
         let tipPercent = tipPercentages[tipSegmentedControl.selectedSegmentIndex]
         let billAmount = (billTextField.text! as NSString).floatValue
@@ -117,5 +73,66 @@ class ViewController: UIViewController {
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         return formatter.stringFromNumber(amount as NSNumber)!
     }
+    
+    //helper function:
+    func setTextFieldFirstResponder() {
+        //make the billAmount TextField become the first responder
+        billTextField.becomeFirstResponder()
+    }
+    
+    //helper function:
+    func beautifyNavBar() {
+        // Set navigation bar background color
+        self.navigationController!.navigationBar.barTintColor =
+            UIColor(red: 0.098, green: 0.161, blue: 0.275, alpha: 1.00)
+        
+        //Set navigation bar title text color
+        self.navigationController!.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.yellowColor()]
+    }
+    
+    //helper function:
+    func animateBillAmountTextField() {
+        //animate billAmountEnterView from alpha 0 to alpha 1
+        billAmountPreAnimView.alpha = 1
+        billAmountPostAnimView.alpha = 0
+        UIView.animateWithDuration(1.5, animations: {
+            self.billAmountPreAnimView.alpha = 0
+            self.billAmountPostAnimView.alpha = 1
+        })
+    }
+    
+    //helper function:
+    func updateDataFromStorage() {
+        //use the model to configure tip percentages: [happy, happier, happiest]
+        if let userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
+            tipPercentages[0] = round(userSettingsModel.happyPercentage * 100) / 100
+            tipPercentages[1] = round(userSettingsModel.happierPercentage * 100) / 100
+            tipPercentages[2] = round(userSettingsModel.happiestPercentage * 100) / 100
+            
+            if userSettingsModel.amount > 0 {
+                billTextField.text = "\(userSettingsModel.amount)"
+            } else {
+                billTextField.text = ""
+            }
+            
+            //change tip labels
+            for position in 0...tipPercentages.count-1 {
+                setSegmentedControlTitle(position, tipPercentages: tipPercentages)
+                print("tip percentage value: \(tipPercentages[position])")
+            }
+        }
+    }
+    
+    //helper function:
+    func saveBillAmountToStorage() {
+        //save billAmount to NSUserDefaults via PersistenceManager
+        let billAmount = (billTextField.text! as NSString).floatValue
+        if var userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
+            userSettingsModel.amount = billAmount
+            PersistenceManager.saveToNSUserDefaults(userSettingsModel)
+        }
+    }
+
 }
 

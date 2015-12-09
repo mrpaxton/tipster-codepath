@@ -13,6 +13,4 @@ struct UserSettingsModel{
     var happyPercentage: Float!
     var happierPercentage: Float!
     var happiestPercentage: Float!
-    
-    
 }

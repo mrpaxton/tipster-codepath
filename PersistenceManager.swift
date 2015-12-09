@@ -10,7 +10,6 @@ import Foundation
 
 class PersistenceManager {
     
-    
     static func saveToNSUserDefaults(obj: UserSettingsModel) -> Bool {
         //Convert Model object to dict; then, save to NSUserDefaults
         let modelDict: NSDictionary = ["amount": obj.amount, "happyPercentage": obj.happyPercentage, "happierPercentage": obj.happierPercentage,
