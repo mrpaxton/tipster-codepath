@@ -20,6 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set the billSplitEnabled value in the NSUserDefaults to false
         PersistenceManager.saveBoolToNSUserDefaults("billSplitEnabled", value: false)
         
+        // initalize tip percentages and bill amount
+        if var userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
+            userSettingsModel.amount = 0.0
+            userSettingsModel.happyPercentage = 0.18
+            userSettingsModel.happierPercentage = 0.20
+            userSettingsModel.happiestPercentage = 0.22
+            PersistenceManager.saveToNSUserDefaults(userSettingsModel)
+        }
+        
+        //clear the billAmount state 10 minutes after
+        let date = NSDate().dateByAddingTimeInterval(10*60)
+        let timer = NSTimer(fireDate: date, interval: 0, target: self, selector: "clearBillAmount", userInfo: nil, repeats: false)
+        NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+        
         return true
     }
 
@@ -43,30 +57,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        
-        //clear the billAmount state 10 minutes after
-        let date = NSDate().dateByAddingTimeInterval(1*10)
-        let timer = NSTimer(fireDate: date, interval: 0, target: self, selector: "clearBillAmount", userInfo: nil, repeats: false)
-        NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
-        
-
     }
     
     //helper: clear billAmount
     func clearBillAmount() {
-//        if var userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
-//            userSettingsModel.amount = 0.0
-//            PersistenceManager.saveToNSUserDefaults(userSettingsModel)
-//        }
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.removePersistentDomainForName("userSettingsModel")
-        print("userSettingsModel cleared!" )
-        
+        if var userSettingsModel = PersistenceManager.retrieveObjectFromNSUserDefaults("userSettingsModel") {
+            userSettingsModel.amount = 0.0
+            PersistenceManager.saveToNSUserDefaults(userSettingsModel)
+        }
     }
 
 
