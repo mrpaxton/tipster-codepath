@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController {
+    
     @IBOutlet weak var billSplitView: UIView!
     @IBOutlet weak var billAmountPreAnimView: UIView!
     @IBOutlet weak var billAmountPostAnimView: UIView!
@@ -18,35 +19,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipSegmentedControl: UISegmentedControl!
     @IBOutlet weak var numPeoplePicker: UIPickerView!
-    var billSplitEnabled = false
     var tipPercentages: [Float] = [0.18, 0.2, 0.22]
-    var totalAmount = Float(0.0)
     
+    //properties for bill splitting
     @IBOutlet weak var individualAmountLabel: UILabel!
+    var billSplitEnabled = false
+    var totalAmount = Float(0.0)
     let numOfPeopleList = [1,2,3,4,5,6,7,8,9,10]
     var numOfPeople = 1
     
-    //////picker
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return numOfPeopleList.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String( numOfPeopleList[row] )
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        numOfPeople = numOfPeopleList[row]
-        individualAmountLabel.text = formatCurrency((totalAmount / Float(numOfPeople)))
-        individualAmountLabel.hidden = false
-    }
-    //////
-    
- 
     
     @IBAction func onEditingChanged(sender: AnyObject) {
         calculateTipAndTotal()
@@ -92,7 +73,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     //helper function: set title of SegmentedControl by index
     func setSegmentedControlTitle(position: Int, tipPercentages: [Float]) {
-        tipSegmentedControl.setTitle("\( round(tipPercentages[position]*100) )%", forSegmentAtIndex: position)
+        tipSegmentedControl.setTitle("\( round(tipPercentages[position]*100) )%",
+            forSegmentAtIndex: position)
     }
     
     //helper function:  perform calcuation for tip and total and update UIs
@@ -106,10 +88,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         tipLabel.text = formatCurrency(tip)
         totalLabel.text = formatCurrency(total)
         
-        //TODO: update whenever percentage settings changed
         individualAmountLabel.text = formatCurrency((totalAmount / Float(numOfPeople)))
         individualAmountLabel.hidden = false
-
     }
     
     //helper function: format the currency amount
@@ -179,5 +159,29 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
 
+}
+
+extension ViewController: UIPickerViewDataSource {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return numOfPeopleList.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String( numOfPeopleList[row] )
+    }
+
+    
+}
+
+extension ViewController: UIPickerViewDelegate {
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        numOfPeople = numOfPeopleList[row]
+        individualAmountLabel.text = formatCurrency((totalAmount / Float(numOfPeople)))
+        individualAmountLabel.hidden = false
+    }
 }
 
