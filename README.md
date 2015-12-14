@@ -28,7 +28,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Walkthrough][[supertipper.gif)]]
+![ALT TEXT](supertipper.gif)
 
 ## Notes
 
