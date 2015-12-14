@@ -31,4 +31,14 @@ class PersistenceManager {
         }
         return nil
     }
+    
+    static func saveBoolToNSUserDefaults(key: String, value: Bool) -> Bool {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(value, forKey: key)
+        return defaults.synchronize()
+    }
+    
+    static func retrieveBoolFromNSUserDefaults(key: String) -> Bool {
+        return NSUserDefaults.standardUserDefaults().boolForKey(key)
+    }
 }

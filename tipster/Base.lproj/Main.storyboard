@@ -14,21 +14,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gvp-Eg-gsg">
-                                <rect key="frame" x="40" y="247" width="49" height="21"/>
+                                <rect key="frame" x="40" y="235" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RWl-rD-cC3">
-                                <rect key="frame" x="165" y="247" width="114" height="21"/>
+                                <rect key="frame" x="165" y="235" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ViB-kt-Vvi">
-                                <rect key="frame" x="40" y="299" width="83" height="31"/>
+                                <rect key="frame" x="41" y="270" width="83" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
@@ -60,22 +60,8 @@
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                             </view>
-                            <segmentedControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9wb-2m-2Rd">
-                                <rect key="frame" x="40" y="377" width="239" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <segments>
-                                    <segment title="18%"/>
-                                    <segment title="20%"/>
-                                    <segment title="22%"/>
-                                </segments>
-                                <color key="tintColor" red="0.97664582407676759" green="0.89790221013857741" blue="0.52344850449353453" alpha="0.81000000000000005" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="IxM-5x-dpd"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qtm-GZ-Zrn">
-                                <rect key="frame" x="108" y="287" width="171" height="55"/>
+                                <rect key="frame" x="109" y="258" width="171" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="25"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
@@ -88,6 +74,56 @@
                                 <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="xvD-hZ-BvD">
+                                <rect key="frame" x="20" y="384" width="268" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many people?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gg4-Vf-3jf">
+                                        <rect key="frame" x="8" y="36" width="146" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each pays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nh7-ko-kWK">
+                                        <rect key="frame" x="8" y="90" width="78" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$25.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V5F-Sf-88E">
+                                        <rect key="frame" x="143" y="90" width="106" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" id="Oh1-su-qiB">
+                                        <rect key="frame" x="166" y="-5" width="94" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="OBi-0I-XJM"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="3No-K2-PVS"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1758903604" green="0.28116916349999999" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <segmentedControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9wb-2m-2Rd">
+                                <rect key="frame" x="40" y="321" width="239" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                    <segment title="22%"/>
+                                </segments>
+                                <color key="tintColor" red="0.97664582407676759" green="0.89790221013857741" blue="0.52344850449353453" alpha="0.81000000000000005" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="IxM-5x-dpd"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.099853576261658056" green="0.16110191816779035" blue="0.27448218395050494" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -107,7 +143,10 @@
                     <connections>
                         <outlet property="billAmountPostAnimView" destination="eWG-9k-Vtf" id="9aV-1l-ujJ"/>
                         <outlet property="billAmountPreAnimView" destination="cJ1-9b-Jov" id="ljZ-qx-8qe"/>
+                        <outlet property="billSplitView" destination="xvD-hZ-BvD" id="kgs-e6-Bvr"/>
                         <outlet property="billTextField" destination="Zug-u5-JbD" id="jBT-tn-WB9"/>
+                        <outlet property="individualAmountLabel" destination="V5F-Sf-88E" id="fT3-5A-JdQ"/>
+                        <outlet property="numPeoplePicker" destination="Oh1-su-qiB" id="9Ob-Q8-m6S"/>
                         <outlet property="superTipperNavItem" destination="8u6-0J-7ZZ" id="xfz-TC-vjZ"/>
                         <outlet property="tipLabel" destination="RWl-rD-cC3" id="csu-ZB-GvW"/>
                         <outlet property="tipSegmentedControl" destination="9wb-2m-2Rd" id="tZ7-Do-c9k"/>
@@ -131,8 +170,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Percentages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="09N-BK-qJU">
+                                <rect key="frame" x="34" y="81" width="253" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" id="VdI-Wb-ORZ">
-                                <rect key="frame" x="29" y="155" width="265" height="347"/>
+                                <rect key="frame" x="28" y="119" width="265" height="347"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HappyImage" id="6FT-aK-fKd">
@@ -192,18 +238,28 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1758903604" green="0.28116916349999999" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Percentages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="09N-BK-qJU">
-                                <rect key="frame" x="35" y="109" width="253" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Split" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QQQ-RW-qY8">
+                                <rect key="frame" x="28" y="480" width="198" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="iiE-Rg-dZ7">
+                                <rect key="frame" x="244" y="479" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.1758903604" green="0.28116916349999999" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.90340305629999995" green="0.90340305629999995" blue="0.90340305629999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onBillSplitSwitchValueChanged:" destination="0Jy-Fp-eia" eventType="valueChanged" id="eoB-eR-pyD"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803921568626" green="0.11764705882352941" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="UEo-S0-eXw"/>
                     <connections>
+                        <outlet property="billSplitSwitch" destination="iiE-Rg-dZ7" id="tn9-gl-Nqd"/>
                         <outlet property="happierLabel" destination="sMI-47-J4Z" id="WXG-85-5BL"/>
                         <outlet property="happierSlider" destination="ZWC-Lh-A9M" id="y1z-Bz-rYo"/>
                         <outlet property="happiestLabel" destination="zbl-0n-92T" id="rA0-rR-ci7"/>

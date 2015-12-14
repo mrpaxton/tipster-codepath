@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // set the billSplitEnabled value in the NSUserDefaults to false
+        PersistenceManager.saveBoolToNSUserDefaults("billSplitEnabled", value: false)
+        
         return true
     }
 

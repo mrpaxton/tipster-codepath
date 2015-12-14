@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var happySlider: UISlider!
     @IBOutlet weak var happierSlider: UISlider!
     @IBOutlet weak var happiestSlider: UISlider!
+    @IBOutlet weak var billSplitSwitch: UISwitch!
+    var billSplitEnabled = false
     
     
     var userSettingsModel: UserSettingsModel!
@@ -47,28 +49,49 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onBillSplitSwitchValueChanged(sender: UISwitch) {
+        if sender.on {
+            billSplitEnabled = true
+        } else {
+            billSplitEnabled = false
+        }
+    }
+    
     @IBAction func onHappySliderChanged(sender: UISlider) {
         userSettingsModel.happyPercentage = sender.value
-        happyLabel.text = formatPercentage(roundf(sender.value*100)/100)
+        happyLabel.text = formatPercentage(roundFloatToTwoDigits(sender.value))
     }
 
     @IBAction func onHappierSliderChanged(sender: AnyObject) {
         userSettingsModel.happierPercentage = sender.value
-        happierLabel.text = formatPercentage(roundf(sender.value*100)/100)
+        happierLabel.text = formatPercentage(roundFloatToTwoDigits(sender.value))
     }
     
     @IBAction func onHappiestSliderChanged(sender: AnyObject) {
         userSettingsModel.happiestPercentage = sender.value
-        happiestLabel.text = formatPercentage(roundf(sender.value*100)/100)
+        happiestLabel.text = formatPercentage(roundFloatToTwoDigits(sender.value))
+    }
+    
+    //helper function
+    func roundFloatToTwoDigits(value: Float) -> Float {
+        return roundf(value*100) / 100
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         PersistenceManager.saveToNSUserDefaults(userSettingsModel)
+        PersistenceManager.saveBoolToNSUserDefaults("billSplitEnabled",
+            value: billSplitEnabled)
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)        
+        super.viewWillAppear(animated)
+        
+        billSplitEnabled =
+            PersistenceManager.retrieveBoolFromNSUserDefaults("billSplitEnabled")
+        //set the value of the bill split switch
+        billSplitSwitch.on = billSplitEnabled
+        
     }
     
     //heler function: format the percentage
@@ -77,15 +100,5 @@ class SettingsViewController: UIViewController {
         formatter.numberStyle = NSNumberFormatterStyle.PercentStyle
         return formatter.stringFromNumber(percentage as NSNumber)!
     }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-    }
-    
 
 }
