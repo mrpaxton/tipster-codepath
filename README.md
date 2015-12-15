@@ -14,7 +14,7 @@ The following **required** functionality is complete:
 * [x] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
-* [x] UI animations
+* [x] UI animations(Bill Amount Field)
 * [x] Remembering the bill amount across app restarts (if <10mins)
 * [x] Using locale-specific currency and currency thousands separators.
 * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
@@ -23,6 +23,7 @@ The following **additional** features are implemented:
 
 * [x] Making a bill splitting feature using a UIPickerView to select the number of people
 * [x] Styling the application UIs and use Emoji images and UISliders to present the settings
+* [x] Making sticky user interfaces(UIPickerView and UISegmentedControl): remembering data across pages
 
 ## Video Walkthrough 
 
