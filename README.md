@@ -30,6 +30,8 @@ Here's a walkthrough of implemented user stories:
 
 ![ALT TEXT](supertipper.gif)
 
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
 ## Notes
 
 During this application development, I have experienced some confusion in programming language syntax usage and unique language features.  This is primarily due to the fact that I have recently been programming in Python, Java, and Swift, which is somewhat new to me.
