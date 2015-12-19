@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController  {
     
     @IBOutlet weak var billSplitView: UIView!
     @IBOutlet weak var billAmountPreAnimView: UIView!
@@ -28,6 +28,10 @@ class ViewController: UIViewController {
     let numOfPeopleList = [1,2,3,4,5,6,7,8,9,10]
     var numOfPeople = 1
     
+    //properties for takeing and send the photo over
+    var imagePicker: UIImagePickerController!
+    var photoImageView: UIImageView!
+    var billImage: UIImage!
     
     @IBAction func onEditingChanged(sender: AnyObject) {
         calculateTipAndTotal()
@@ -182,6 +186,33 @@ extension ViewController: UIPickerViewDelegate {
         numOfPeople = numOfPeopleList[row]
         individualAmountLabel.text = formatCurrency((totalAmount / Float(numOfPeople)))
         individualAmountLabel.hidden = false
+    }
+}
+
+//Use the device camera to take the bill photo
+extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    @IBAction func onPhotoTaken(sender: AnyObject) {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .Camera
+        
+        //show the device camera
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let photoViewController = segue.destinationViewController as? PhotoViewController {
+            photoViewController.billImage = self.billImage
+        }
+    }
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        billImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        //segue to the PhotoViewController sending the photoImageView
+        self.performSegueWithIdentifier("showPhotoView", sender: self)
     }
 }
 

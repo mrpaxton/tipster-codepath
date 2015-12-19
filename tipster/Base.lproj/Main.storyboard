@@ -146,7 +146,7 @@
                             </barButtonItem>
                             <barButtonItem systemItem="camera" id="HBw-0f-nf2">
                                 <connections>
-                                    <segue destination="XAN-K2-0IF" kind="push" id="UOl-k0-chY"/>
+                                    <action selector="onPhotoTaken:" destination="BYZ-38-t0r" id="UE0-Sg-yta"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -163,6 +163,7 @@
                         <outlet property="tipLabel" destination="RWl-rD-cC3" id="csu-ZB-GvW"/>
                         <outlet property="tipSegmentedControl" destination="9wb-2m-2Rd" id="tZ7-Do-c9k"/>
                         <outlet property="totalLabel" destination="Qtm-GZ-Zrn" id="9dc-aJ-nS3"/>
+                        <segue destination="XAN-K2-0IF" kind="push" identifier="showPhotoView" id="0Rk-rU-iRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -293,19 +294,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fwH-FK-bKy">
-                                <rect key="frame" x="37" y="92" width="246" height="333"/>
+                                <rect key="frame" x="17" y="78" width="286" height="383"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mrx-c2-6kF">
-                                <rect key="frame" x="79" y="474" width="162" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Take Photo"/>
-                                <connections>
-                                    <action selector="onPhotoTaken:" destination="XAN-K2-0IF" eventType="touchUpInside" id="2IB-k4-Xqz"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cMI-jd-JjX">
-                                <rect key="frame" x="94" y="433" width="97" height="30"/>
+                                <rect key="frame" x="112" y="469" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save Photo"/>
                                 <connections>
@@ -318,11 +311,13 @@
                     <navigationItem key="navigationItem" id="yGx-Ex-QGW"/>
                     <connections>
                         <outlet property="photoImageView" destination="fwH-FK-bKy" id="jfm-Cs-tZy"/>
+                        <segue destination="KZq-bd-efZ" kind="unwind" identifier="exitPhotoView" unwindAction="unwindForSegue:towardsViewController:" id="6ex-3y-fNp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCT-2z-AYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KZq-bd-efZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="1064"/>
+            <point key="canvasLocation" x="1088" y="1043"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IIR-lm-Nbe">
