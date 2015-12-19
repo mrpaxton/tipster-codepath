@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qqZ-kk-GVb">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--SuperTipper -->
@@ -74,8 +74,22 @@
                                 <color key="textColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.17254901959999999" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9wb-2m-2Rd">
+                                <rect key="frame" x="40" y="309" width="239" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                    <segment title="22%"/>
+                                </segments>
+                                <color key="tintColor" red="0.97664582407676759" green="0.89790221013857741" blue="0.52344850449353453" alpha="0.81000000000000005" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="IxM-5x-dpd"/>
+                                </connections>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" id="xvD-hZ-BvD">
-                                <rect key="frame" x="20" y="384" width="268" height="128"/>
+                                <rect key="frame" x="20" y="398" width="268" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many people?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gg4-Vf-3jf">
@@ -115,20 +129,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1758903604" green="0.28116916349999999" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <segmentedControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9wb-2m-2Rd">
-                                <rect key="frame" x="40" y="321" width="239" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <segments>
-                                    <segment title="18%"/>
-                                    <segment title="20%"/>
-                                    <segment title="22%"/>
-                                </segments>
-                                <color key="tintColor" red="0.97664582407676759" green="0.89790221013857741" blue="0.52344850449353453" alpha="0.81000000000000005" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="IxM-5x-dpd"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.099853576261658056" green="0.16110191816779035" blue="0.27448218395050494" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -138,11 +138,18 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="SuperTipper " id="8u6-0J-7ZZ" colorLabel="IBBuiltInLabel-Orange">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="nIp-QA-gbo">
-                            <connections>
-                                <segue destination="0Jy-Fp-eia" kind="push" id="dm5-x3-0IY"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="Cogs" id="nIp-QA-gbo">
+                                <connections>
+                                    <segue destination="0Jy-Fp-eia" kind="push" id="dm5-x3-0IY"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="HBw-0f-nf2">
+                                <connections>
+                                    <segue destination="XAN-K2-0IF" kind="push" id="UOl-k0-chY"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -277,6 +284,46 @@
             </objects>
             <point key="canvasLocation" x="1070" y="320"/>
         </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="DgA-Yg-LpY">
+            <objects>
+                <viewController id="XAN-K2-0IF" customClass="PhotoViewController" customModule="tipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NEm-AC-lGZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fwH-FK-bKy">
+                                <rect key="frame" x="37" y="92" width="246" height="333"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mrx-c2-6kF">
+                                <rect key="frame" x="79" y="474" width="162" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="onPhotoTaken:" destination="XAN-K2-0IF" eventType="touchUpInside" id="2IB-k4-Xqz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cMI-jd-JjX">
+                                <rect key="frame" x="94" y="433" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Photo"/>
+                                <connections>
+                                    <action selector="onPhotoSaved:" destination="XAN-K2-0IF" eventType="touchUpInside" id="Xn4-Ed-16n"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yGx-Ex-QGW"/>
+                    <connections>
+                        <outlet property="photoImageView" destination="fwH-FK-bKy" id="jfm-Cs-tZy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCT-2z-AYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="1064"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="IIR-lm-Nbe">
             <objects>
@@ -293,10 +340,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsH-kf-NrM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="321"/>
+            <point key="canvasLocation" x="232" y="321"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Cogs" width="22" height="15"/>
         <image name="HappierImage" width="97" height="95"/>
         <image name="HappiestImage" width="94" height="94"/>
         <image name="HappyImage" width="95" height="102"/>

@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "HappyImage.png"
+      "filename" : "Camera.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "HappyImage@2x.png",
+      "filename" : "Camera@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "HappyImage@3x.png"
+      "filename" : "Camera@3x.png"
     }
   ],
   "info" : {

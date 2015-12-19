@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00FD7381C223AF1000926EB /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00FD7371C223AF1000926EB /* PhotoViewController.swift */; };
 		D03586251C13764800832AC7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03586241C13764800832AC7 /* SettingsViewController.swift */; };
 		D0A813071C1292BF001CAEA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A813061C1292BF001CAEA3 /* AppDelegate.swift */; };
 		D0A813091C1292BF001CAEA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A813081C1292BF001CAEA3 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D00FD7371C223AF1000926EB /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		D03586241C13764800832AC7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D0A813031C1292BF001CAEA3 /* tipster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A813061C1292BF001CAEA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				D03586241C13764800832AC7 /* SettingsViewController.swift */,
 				D0C2544E1C14D28A00EE95A2 /* PersistenceManager.swift */,
 				D0C2544C1C14D18700EE95A2 /* UserSettingsModel.swift */,
+				D00FD7371C223AF1000926EB /* PhotoViewController.swift */,
 			);
 			path = tipster;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				D0A813071C1292BF001CAEA3 /* AppDelegate.swift in Sources */,
 				D03586251C13764800832AC7 /* SettingsViewController.swift in Sources */,
 				D0C2544D1C14D18700EE95A2 /* UserSettingsModel.swift in Sources */,
+				D00FD7381C223AF1000926EB /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +269,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tipster/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sarn.tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,7 +281,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tipster/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sarn.tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
