@@ -33,6 +33,12 @@ class ViewController: UIViewController  {
     var photoImageView: UIImageView!
     var billImage: UIImage!
     
+    //round knob holder view
+    @IBOutlet weak var roundKnobHolderView: UIView!
+    
+    var tipPresetMode = true
+    var tipValueFromKnob:Float = 0.0
+    
     @IBAction func onEditingChanged(sender: AnyObject) {
         calculateTipAndTotal()
         saveBillAmountToStorage()
@@ -48,6 +54,40 @@ class ViewController: UIViewController  {
         setTextFieldFirstResponder()
         beautifyNavBar()
         animateBillAmountTextField()
+        addRoundKnob()
+        
+        //a hack: .TouchUpInside event does not work; .AllEvents works. So, use it for now
+        tipSegmentedControl.addTarget(self, action: "onAllEvents:", forControlEvents: .AllEvents)
+    }
+    
+    //callback: action when there is an event fired from the tipSegmentedControl
+    func onAllEvents(sender: AnyObject?) {
+        tipPresetMode = true
+        calculateTipAndTotal()
+    }
+    
+    func addRoundKnob() {
+        //use a custom knob (from Knob.swift)
+        let knobFrame = CGRect(x: 5, y:10,
+            width: roundKnobHolderView.frame.size.width - 10,
+            height: roundKnobHolderView.frame.size.height )
+        let myKnob = Knob( frame: knobFrame )
+        myKnob.lineWidth = 7.5
+        myKnob.pointerLength = 15.0
+        myKnob.value = 0.25
+        myKnob.maximumValue = 0.65
+        myKnob.minimumValue = 0.10
+        myKnob.addTarget(self, action: "knobValueChanged:", forControlEvents: .ValueChanged)
+        roundKnobHolderView.addSubview( myKnob )
+    }
+    
+    func knobValueChanged(knob: Knob) {
+        //update tip amount
+        //update total
+        //update individual amount
+        tipPresetMode = false
+        tipValueFromKnob = roundf( knob.value * 100 )  / 100
+        calculateTipAndTotal()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -81,9 +121,15 @@ class ViewController: UIViewController  {
             forSegmentAtIndex: position)
     }
     
-    //helper function:  perform calcuation for tip and total and update UIs
+    //helper function:  perform calcuation for tip and total and update labels
     func calculateTipAndTotal() {
-        let tipPercent = tipPercentages[tipSegmentedControl.selectedSegmentIndex]
+        var tipPercent:Float!
+        if tipPresetMode {
+            tipPercent = tipPercentages[tipSegmentedControl.selectedSegmentIndex]
+        } else {
+            tipPercent = tipValueFromKnob
+        }
+        
         let billAmount = (billTextField.text! as NSString).floatValue
         
         let tip = billAmount * tipPercent

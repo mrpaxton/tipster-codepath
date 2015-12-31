@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D005BD841C327D9200B24D50 /* Knob.swift in Sources */ = {isa = PBXBuildFile; fileRef = D005BD831C327D9200B24D50 /* Knob.swift */; };
 		D00FD7381C223AF1000926EB /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00FD7371C223AF1000926EB /* PhotoViewController.swift */; };
 		D03586251C13764800832AC7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03586241C13764800832AC7 /* SettingsViewController.swift */; };
 		D0A813071C1292BF001CAEA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A813061C1292BF001CAEA3 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D005BD831C327D9200B24D50 /* Knob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Knob.swift; sourceTree = "<group>"; };
 		D00FD7371C223AF1000926EB /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		D03586241C13764800832AC7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D0A813031C1292BF001CAEA3 /* tipster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				D0C2544E1C14D28A00EE95A2 /* PersistenceManager.swift */,
 				D0C2544C1C14D18700EE95A2 /* UserSettingsModel.swift */,
 				D00FD7371C223AF1000926EB /* PhotoViewController.swift */,
+				D005BD831C327D9200B24D50 /* Knob.swift */,
 			);
 			path = tipster;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				D03586251C13764800832AC7 /* SettingsViewController.swift in Sources */,
 				D0C2544D1C14D18700EE95A2 /* UserSettingsModel.swift in Sources */,
 				D00FD7381C223AF1000926EB /* PhotoViewController.swift in Sources */,
+				D005BD841C327D9200B24D50 /* Knob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
