@@ -58,6 +58,7 @@ class ViewController: UIViewController  {
         
         //a hack: .TouchUpInside event does not work; .AllEvents works. So, use it for now
         tipSegmentedControl.addTarget(self, action: "onAllEvents:", forControlEvents: .AllEvents)
+        
     }
     
     //callback: action when there is an event fired from the tipSegmentedControl
@@ -82,9 +83,6 @@ class ViewController: UIViewController  {
     }
     
     func knobValueChanged(knob: Knob) {
-        //update tip amount
-        //update total
-        //update individual amount
         tipPresetMode = false
         tipValueFromKnob = roundf( knob.value * 100 )  / 100
         calculateTipAndTotal()
@@ -95,6 +93,24 @@ class ViewController: UIViewController  {
         updateDataFromStorage()
         calculateTipAndTotal()
         checkBillSplitView()
+        
+        if billSplitView.hidden {
+            //animate the custom knob
+            animateRoundKnob()
+        }        
+    }
+    
+    func animateRoundKnob() {
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.roundKnobHolderView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1)
+            }) { (finished) -> Void in
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.roundKnobHolderView.transform = CGAffineTransformIdentity
+                    
+                })
+        }
+        let parentView = roundKnobHolderView.superview!
+        roundKnobHolderView.frame.origin.x = (parentView.frame.size.width - roundKnobHolderView.frame.size.width ) / 2.0
     }
     
     override func viewDidDisappear(animated: Bool) {
