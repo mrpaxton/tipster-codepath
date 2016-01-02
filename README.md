@@ -24,6 +24,8 @@ The following **additional** features are implemented:
 * [x] Making a bill splitting feature using a UIPickerView to select the number of people
 * [x] Styling the application UIs and use Emoji images and UISliders to present the settings
 * [x] Making sticky user interfaces(UIPickerView and UISegmentedControl): remembering data across pages
+* [x] Add the Camera to take bill photos (working on device but not on simulator)
+* [x] Include a custom knob that can work in conjunction with the preset control (most challenging in this app dev so far) 
 
 ## Video Walkthrough 
 
