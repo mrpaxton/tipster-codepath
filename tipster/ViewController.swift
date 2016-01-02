@@ -109,6 +109,7 @@ class ViewController: UIViewController  {
                     
                 })
         }
+        //TODO: first load still not moving the round knob to center 
         let parentView = roundKnobHolderView.superview!
         roundKnobHolderView.frame.origin.x = (parentView.frame.size.width - roundKnobHolderView.frame.size.width ) / 2.0
     }
